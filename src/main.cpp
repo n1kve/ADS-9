@@ -1,9 +1,10 @@
 // Copyright 2022 NNTU-CS
 #include "tree.h"
+#include <chrono>
 #include <random>
 #include <fstream>
 #include <iostream>
-#include <chrono>
+#include <vector>
 
 int main() {
   std::vector<char> elmnts = {'1', '2', '3'};
