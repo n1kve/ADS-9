@@ -1,11 +1,13 @@
 // Copyright 2022 NNTU-CS
+#include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <locale>
-#include <cstdlib>
-#include "tree.h"
 #include <algorithm>
 #include <stdexcept>
+#include <memory>
+#include <vector>
+#include "tree.h"
 
 PMTree::PMTree(const std::vector<char>& elmnts) {
     if (elmnts.empty()) {
@@ -66,7 +68,7 @@ std::vector<char> PMTree::getPerm1(int num) const {
 }
 
 bool PMTree::findTraversal(std::shared_ptr<Node> node, std::vector<char>& crrnt,
-                           int& cnt, int target_num, std::vector<char>& res) const {
+                    int& cnt, int target_num, std::vector<char>& res) const {
     crrnt.push_back(node->val);
     if (node->kids.empty()) {
         cnt++;
