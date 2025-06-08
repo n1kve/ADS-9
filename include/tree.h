@@ -5,27 +5,27 @@
 #include <memory>
 
 class PMTree {
-public:
+ public:
     struct Node {
         char val;
         std::vector<std::shared_ptr<Node>> kids;
-        Node(char v) : val(v) {}
+        explicit Node(char v) : val(v) {}
     };
-    PMTree(const std::vector<char>& elmnts);
+    explicit PMTree(const std::vector<char>& elmnts);
     std::vector<std::vector<char>> getAllPerms() const;
     std::vector<char> getPerm1(int num) const;
     std::vector<char> getPerm2(int num) const;
 
-private:
+ private:
     std::shared_ptr<Node> root;
     size_t total_perms;
     void build(std::shared_ptr<Node> node, const std::vector<char>& rest);
-    void collect(std::shared_ptr<Node> node, std::vector<char>& crrnt, 
-                std::vector<std::vector<char>>& rslt) const;
-    bool findTraversal(std::shared_ptr<Node> node, std::vector<char>& crrnt, 
-                      int& cnt, int target_num, std::vector<char>& res) const;
-    bool findNavigation(std::shared_ptr<Node> node, std::vector<char>& crrnt, 
-                       int& remaining, std::vector<char>& res) const;
+    void collect(std::shared_ptr<Node> node, std::vector<char>& crrnt,
+                 std::vector<std::vector<char>>& rslt) const;
+    bool findTraversal(std::shared_ptr<Node> node, std::vector<char>& crrnt,
+                       int& cnt, int target_num, std::vector<char>& res) const;
+    bool findNavigation(std::shared_ptr<Node> node, std::vector<char>& crrnt,
+                        int& remaining, std::vector<char>& res) const;
     int fact(int n) const;
 };
 
